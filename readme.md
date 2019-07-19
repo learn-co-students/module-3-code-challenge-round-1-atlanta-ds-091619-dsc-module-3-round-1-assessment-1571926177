@@ -105,17 +105,7 @@ ans2 = None
 3. Plot the probability mass function of $k$ in 22 draws.
 
 
-
-```python
-
-```
-
 4. Plot the cumulative density function of $k$ in 10 draws.
-
-
-```python
-
-```
 
 ## Part 2: Statistical Distributions
 
@@ -191,11 +181,6 @@ ans3 = None
 
 `// answer here //`
 
-
-```python
-
-```
-
 5. Say we don't know how our population of checks is distributed. How does **sampling** and the **Central Limit Theorem** allow us to **make inferences on the population mean**, i.e. estimate $\mu, \sigma$ of the population mean?
 
 `// answer here //`
@@ -225,6 +210,7 @@ Now assume we don't have reliable data on the population. With $\alpha = 0.05$, 
 ```python
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
 
+np.random.seed(43)
 no_queso = np.random.choice(data, 1000)
 ax1.set_title('Sample of Non-Queso Check Totals')
 ax1.set_xlabel('Amount')
@@ -240,11 +226,6 @@ plt.show()
 ```
 
 1. Run a `statistical test` on the two samples to determine whether you should reject your null hypothesis.
-
-
-```python
-
-```
 
 2. What are the conditions required to perform the test you chose?
 
@@ -269,7 +250,7 @@ If he goes to the pound, the probability of him getting a small puppy is $0.1$. 
 1. What is the probability of Thomas getting a small puppy?
 2. Given that he got a large puppy, what is the probability that Thomas went to the pet store?
 3. Given that Thomas got a small puppy, is it more likely that he went to the pet store or to the pound?
-4. **[BONUS]** For Part 2, what is the prior, posterior and likelihood?
+4. For Part 2, what is the prior, posterior and likelihood?
 
 
 ```python
