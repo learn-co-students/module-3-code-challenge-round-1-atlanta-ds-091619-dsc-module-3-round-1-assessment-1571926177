@@ -105,7 +105,17 @@ ans2 = None
 3. Plot the probability mass function of $k$ in 22 draws.
 
 
-4. Plot the cumulative density function of $k$ in 10 draws.
+
+```python
+
+```
+
+4. Plot the cumulative density function of $k$ in 22 draws.
+
+
+```python
+
+```
 
 ## Part 2: Statistical Distributions
 
@@ -135,7 +145,10 @@ print(
 
 2. What measure of centrality would you use to most fairly describe the ratings and why?
 
-`// answer here // `
+
+```python
+# Your written answer here
+```
 
 ### b. Continuous Distributions
 
@@ -179,11 +192,22 @@ ans3 = None
 
 4. Define **confidence interval** and determine the 95% confidence interval for this population.
 
-`// answer here //`
+
+```python
+
+```
+
+
+```python
+# Your written answer here
+```
 
 5. Say we don't know how our population of checks is distributed. How does **sampling** and the **Central Limit Theorem** allow us to **make inferences on the population mean**, i.e. estimate $\mu, \sigma$ of the population mean?
 
-`// answer here //`
+
+```python
+# Your written answer here
+```
 
 ## Part 3: Statistical Testing
 
@@ -199,8 +223,10 @@ $H_{A}:$ `hypothesis here`
 
 2. In this context, what does it mean to make `Type I` and `Type II` errors?
 
-`// answer here //`
 
+```python
+# Your written answer here
+```
 
 ### b. Sample Testing
 
@@ -227,9 +253,17 @@ plt.show()
 
 1. Run a `statistical test` on the two samples to determine whether you should reject your null hypothesis.
 
+
+```python
+
+```
+
 2. What are the conditions required to perform the test you chose?
 
-`// answer here //`
+
+```python
+# Your written answer here
+```
 
 ## Part 4: Bayesian Statistics
 ### a. Bayes' Theorem
@@ -257,5 +291,7 @@ If he goes to the pound, the probability of him getting a small puppy is $0.1$. 
 ans1 = None
 ans2 = None
 ans3 = "answer here"
-ans4 = "answer here"
+ans4_prior = "answer here"
+ans4_posterior = "answer here"
+ans4_likelihood = "answer here"
 ```
