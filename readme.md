@@ -5,7 +5,9 @@ Welcome to your Mod 3 Assessment. You will be tested for your understanding of c
 
 Use any libraries you want to solve the problems in the assessment.
 
-You will have up to **two hours** to complete this assessment.
+_Read the instructions carefully_. You will be asked both to write code and respond to a few short answer questions.
+
+**Note on the short answer questions**: For the short answer questions please use your own words. The expectation is that you have not copied and pasted from an external source, even if you consult another source to help craft your response. While the short answer questions are not necessarily being assessed on grammatical correctness or sentence structure, you should do your best to communicate yourself clearly.
 
 The sections of the assessment are:
 - Combinatorics, Probability and Discrete Distributions
@@ -19,12 +21,13 @@ The sections of the assessment are:
 ```python
 # import the necessary libraries
 import numpy as np
+import pandas as pd 
 from scipy import stats
 import matplotlib.pyplot as plt
 import pickle
 ```
 
-## Part 1: Combinatorics, Probability & Discrete Distributions
+## Part 1: Combinatorics, Probability & Discrete Distributions [Suggested time: 20 minutes]
 
 ### a. Set Theory
 
@@ -36,15 +39,10 @@ $P(B) = 0.5$
 
 $P(B|A) = 0.4$
 
-Find and assign to the variables in the next cell:
+Calculate the following probabilities and assign to the variables `ans1` and `ans2`, respectively, in the next cell:
 
-1. $P(A and B)$
-
-2. $P(A or B)$
-
-3. $P(A|B)$
-
-4. $P(B|A^{c})$
+1.a.1) $P(A and B)$
+1.a.2) $P(A|B)$
 
 Hint: draw a diagram!
 
@@ -53,31 +51,31 @@ Hint: draw a diagram!
 ```python
 ans1 = None
 ans2 = None
-ans3 = None
-ans4 = None
 ```
 
 ### b. Card Combinatorics
 
-You have a standard deck of 52 cards. We define three subsets:
+A standard deck of playing cards consists of 52 cards in each of the four suits of spades, hearts, diamonds, and clubs. Each suit contains 13 cards: Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, and King.
+    
+You have a standard deck of 52 cards and are asked the following questions:
 
-1. What is the probability of drawing a king or a queen?
-2. How many possible 5-card combinations can be formed with this deck of 52 cards?
-3. Given that you've drawn 5 cards without replacement, what is the probability of getting **2 red cards** and **3 black cards**?
+1.b.1) What is the probability of drawing a King or a Queen?
 
+1.b.2) How many possible 5-card combinations can be formed with this deck of 52 cards?
+
+Answer the questions below:
 
 
 ```python
 ans1 = None
 ans2 = None
-ans3 = None
 ```
 
 ### c. Discrete Probability Distributions
 
-In a game with the same deck of 52 cards, you draw a card $n$ times with replacement. You win a point by drawing a face card (king, queen or jack). 
+In a game with the same deck of 52 cards, you draw a card $n$ times with replacement. You win a point by drawing a face card (Jack, Queen, or King). 
 
-1. Let $k$ be the number of points won in the game. Write a function that takes in the number of draws, the probability of winning a point and $k$ to return the corresponding probability.
+The function `probability_of_scoring_k` is provided below. In this function, $k$ is the number of points won in the game, $n$ is the number of draws, and $p$ is the probability of winning a point. The function returns the corresponding probability of scoring $k$ points given $n$ and $p$.
 
 
 ```python
@@ -91,159 +89,136 @@ def probability_of_scoring_k(n, p, k):
     
     """
     
-    pass
+    # defining a helper function for factorial
+    def fact(n):
+        return np.math.factorial(n)
+    
+    return (fact(n)/(fact(k)*fact(n-k)))*(p**(k))*((1-p)**(n-k))
 ```
 
-2. Using your function, what is the probability of winning 8 points out of 22 draws?
-
+1.c.1) What is the probability $p$ of winning a point? 
 
 
 ```python
-ans2 = None
+# your code here 
+p = None 
 ```
 
-3. Plot the probability mass function of $k$ in 22 draws.
-
+1.c.2) Use the function `probability_of_scoring_k` to compute the probability of scoring 8 points out out of 22 draws.
 
 
 ```python
-
+# your code here 
+ans1 = None
+print(ans1)
 ```
 
-4. Plot the cumulative density function of $k$ in 22 draws.
+1.c.3) Use the function `probability_of_scoring_k` to calculate the probability of drawing $k$ points out of 22 draws, for $k$ ranging from 0 to 22. 
+
+_Hint: Your final result should be in the form of a list or array._
 
 
 ```python
+# your code here
+k_values = range(23)
 
 ```
 
-## Part 2: Statistical Distributions
-
-### a. Descriptive Statistics
-
-1. `ratings` is a list of ratings for a TexMex restaurant. Compute the descriptive statistics of `ratings`.
+1.c.4) Plot your results to create the probability mass function. Use a bar plot. What type of distribution does the `probability_of_scoring_k` have?
 
 
 ```python
-ratings = [1, 2, 7, 7.5, 8, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 10, 10, 10]
-
-mean = None
-median = None
-mode = None
-standard_deviation = None
-number_range = None
-interquartile_range = None
-
-print(
-"Mean: ", mean, "\n" 
-"Median: ", median, "\n"
-"Mode: ", mode, "\n"
-"Standard Deviation: ", standard_deviation, "\n"
-"Range: ", number_range, "\n"
-"Interquartile Range: ", interquartile_range)
+# your code here 
 ```
-
-2. What measure of centrality would you use to most fairly describe the ratings and why?
 
 
 ```python
-# Your written answer here
+# your answer here 
 ```
 
-### b. Continuous Distributions
+## Part 2: Statistical Distributions [Suggested time: 20 minutes]
 
-Say we have data on all $10,000$ checks for this TexMex restaurant and they happen to be normally distributed with $\mu = 20$ and $\sigma = 2$. We can visualize the data as follows: 
+### a. Normal Distributions
 
+Say we have check totals for all checks ever written at a TexMex restaurant. 
 
-```python
-data = pickle.load(open("data/data10000.pkl", "rb"))
-plt.title('Distribution of Check Totals')
-plt.xlabel('Amount')
-plt.ylabel('Frequency')
-plt.hist(data, bins=80)
-plt.show()
-```
+The distribution for this population of check totals happens to be normally distributed with a population mean of $\mu = 20$ and population standard deviation of $\sigma = 2$. 
 
-For the following questions, you may use a [z-table](https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf).
-
-1. Write a function to compute z-scores of single checks.
-
+2.a.1) Write a function to compute the z-scores for single checks of amount `check_amt`.
 
 
 ```python
 def z_score(check_amt):
-    
     """
     check_amt = the amount for which we want to compute the z-score
-    
     """
-    
     pass
 ```
 
-2. Using $\alpha = 0.05$, is my 23 dollar check significantly **greater** than the mean? Assign boolean `True` for yes, `False` for no to `ans2`.
-3. What if my check comes up to 24 dollars?
+2.a.2) I go to the TexMex restaurant and get a check for 24 dollars. Using $\alpha = 0.05$, is my 24 dollar check significantly **greater** than the mean? How do you know this?  
 
+Hint: Here's a link to a [z-table](https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf).
 
-```python
-ans2 = None
-ans3 = None
-```
-
-4. Define **confidence interval** and determine the 95% confidence interval for this population.
 
 
 ```python
-
+# your code here 
 ```
+
+
+```python
+# your answer here
+```
+
+### b. Confidence Intervals and the Central Limit Theorem
+
+2.b.1) Determine the 95% confidence interval around the mean check total for this population. Interpret your result. 
+
+
+```python
+# your code here 
+```
+
+
+```python
+# your written answer here
+```
+
+2.b.2) Imagine that we didn't know how the population of check totals was distributed. How would **sampling** and the **Central Limit Theorem** allow us to **make inferences on the population mean**, i.e. estimate $\mu, \sigma$ of the population mean?
 
 
 ```python
 # Your written answer here
 ```
 
-5. Say we don't know how our population of checks is distributed. How does **sampling** and the **Central Limit Theorem** allow us to **make inferences on the population mean**, i.e. estimate $\mu, \sigma$ of the population mean?
-
 
 ```python
-# Your written answer here
+
 ```
 
-## Part 3: Statistical Testing
+## Part 3: Statistical Testing [Suggested time: 20 minutes]
 
-### a. Hypotheses and Errors
+The TexMex restaurant recently introduced Queso to its menu.
 
-This TexMex restaurant recently introduced Queso to its menu. The restaurant owners want to know if customers ordering Queso end up spending **more or less**. Let the average amount on Queso customers' checks be $X_{Q}$.
+We have random samples of 1000 "No Queso" order check totals and 1000 "Queso" order check totals for orders made by different customers.
 
-1. Set up the null and alternative hypotheses for this test.
-
-$H_{0}:$ `hypothesis here`
-
-$H_{A}:$ `hypothesis here`
-
-2. In this context, what does it mean to make `Type I` and `Type II` errors?
+In the cell below, we load the sample data for you into the arrays `no_queso` and `queso` for the "no queso" and "queso" order check totals. Then, we create histograms of the distribution of the check amounts for the "no queso" and "queso" samples. 
 
 
 ```python
-# Your written answer here
-```
+# Load the sample data 
+no_queso = pickle.load(open("data/no_queso.pkl", "rb"))
+queso = pickle.load(open("data/queso.pkl", "rb"))
 
-### b. Sample Testing
+# Plot histograms
 
-Now assume we don't have reliable data on the population. With $\alpha = 0.05$, we want to determine if Queso checks are significantly more **or** less than normal. We have random samples of Queso and Non-Queso checks. The samples are in the graphs below and you may assume they have equal variances.
-
-
-```python
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
 
-np.random.seed(43)
-no_queso = np.random.choice(data, 1000)
 ax1.set_title('Sample of Non-Queso Check Totals')
 ax1.set_xlabel('Amount')
 ax1.set_ylabel('Frequency')
 ax1.hist(no_queso, bins=20)
 
-queso = pickle.load(open("data/queso.pkl", "rb"))
 ax2.set_title('Sample of Queso Check Totals')
 ax2.set_xlabel('Amount')
 ax2.set_ylabel('Frequency')
@@ -251,21 +226,48 @@ ax2.hist(queso, bins=20)
 plt.show()
 ```
 
-1. Run a `statistical test` on the two samples to determine whether you should reject your null hypothesis.
+### a. Hypotheses and Errors
 
+The restaurant owners want to know if customers who order Queso spend **more or less** than customers who do not order Queso.
 
-```python
-
-```
-
-2. What are the conditions required to perform the test you chose?
+3.a.1) Set up the null $H_{0}$ and alternative hypotheses $H_{A}$ for this test.
 
 
 ```python
 # Your written answer here
 ```
 
-## Part 4: Bayesian Statistics
+3.a.2) What does it mean to make `Type I` and `Type II` errors in this specific context?
+
+
+```python
+# your answer here
+```
+
+### b. Sample Testing
+
+3.b.1) Run a statistical test on the two samples. Use a significance level of $\alpha = 0.05$. You can assume the two samples have equal variance. Can you reject the null hypothesis? 
+
+_Hint: Use `scipy.stats`._
+
+
+```python
+# your code here 
+```
+
+
+```python
+# your answer here
+```
+
+3.b.2) What assumptions do you need to make about the data to use this test? 
+
+
+```python
+# Your written answer here
+```
+
+## Part 4: Bayesian Statistics [Suggested time: 15 minutes]
 ### a. Bayes' Theorem
 
 Thomas wants to get a new puppy 🐕 🐶 🐩 
@@ -281,10 +283,10 @@ If he goes to the pet store, the probability of him getting a small puppy is $0.
 
 If he goes to the pound, the probability of him getting a small puppy is $0.1$. The probability of him getting a medium puppy is $0.35$, and the probability of him getting a large puppy is $0.55$.
 
-1. What is the probability of Thomas getting a small puppy?
-2. Given that he got a large puppy, what is the probability that Thomas went to the pet store?
-3. Given that Thomas got a small puppy, is it more likely that he went to the pet store or to the pound?
-4. For Part 2, what is the prior, posterior and likelihood?
+4.a.1) What is the probability of Thomas getting a small puppy?
+4.a.2) Given that he got a large puppy, what is the probability that Thomas went to the pet store?
+4.a.3) Given that Thomas got a small puppy, is it more likely that he went to the pet store or to the pound?
+4.a.4) For Part 2, what is the prior, posterior and likelihood?
 
 
 ```python
@@ -294,4 +296,9 @@ ans3 = "answer here"
 ans4_prior = "answer here"
 ans4_posterior = "answer here"
 ans4_likelihood = "answer here"
+```
+
+
+```python
+
 ```
