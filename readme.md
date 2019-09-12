@@ -155,10 +155,9 @@ def z_score(check_amt):
     pass
 ```
 
-2.a.2) I go to the TexMex restaurant and get a check for 24 dollars. Using $\alpha = 0.05$, is my 24 dollar check significantly **greater** than the mean? How do you know this?  
+2.a.2) I go to the TexMex restaurant and get a check for 24 dollars. 
 
-Hint: Here's a link to a [z-table](https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf).
-
+Use your function to compute your check's z-score, and interpret the result using the empirical rule. 
 
 
 ```python
@@ -168,6 +167,20 @@ Hint: Here's a link to a [z-table](https://www.math.arizona.edu/~rsims/ma464/sta
 
 ```python
 # your answer here
+```
+
+2.a.3) Using $\alpha = 0.05$, is my 25 dollar check significantly **greater** than the mean? How do you know this?  
+
+Hint: Here's a link to a [z-table](https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf). 
+
+
+```python
+# your code here 
+```
+
+
+```python
+# your answer here 
 ```
 
 ### b. Confidence Intervals and the Central Limit Theorem
@@ -189,11 +202,6 @@ Hint: Here's a link to a [z-table](https://www.math.arizona.edu/~rsims/ma464/sta
 
 ```python
 # Your written answer here
-```
-
-
-```python
-
 ```
 
 ## Part 3: Statistical Testing [Suggested time: 20 minutes]
@@ -258,13 +266,6 @@ _Hint: Use `scipy.stats`._
 
 ```python
 # your answer here
-```
-
-3.b.2) What assumptions do you need to make about the data to use this test? 
-
-
-```python
-# Your written answer here
 ```
 
 ## Part 4: Bayesian Statistics [Suggested time: 15 minutes]
