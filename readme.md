@@ -136,7 +136,7 @@ k_values = range(23)
 # your answer here 
 ```
 
-## Part 2: Statistical Distributions [Suggested time: 20 minutes]
+## Part 2: Statistical Distributions [Suggested time: 25 minutes]
 
 ### a. Normal Distributions
 
@@ -204,7 +204,7 @@ Hint: Here's a link to a [z-table](https://www.math.arizona.edu/~rsims/ma464/sta
 # Your written answer here
 ```
 
-## Part 3: Statistical Testing [Suggested time: 20 minutes]
+## Part 3: Statistical Testing [Suggested time: 15 minutes]
 
 The TexMex restaurant recently introduced Queso to its menu.
 
